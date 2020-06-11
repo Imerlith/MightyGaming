@@ -1,0 +1,81 @@
+﻿<Window x:Class="MightyClient.AddNewBookingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MightyClient"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label Content="Dane rezerwacji" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="center"  Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="6"/>
+
+        <Label Content="Imie" HorizontalAlignment="Left" VerticalAlignment="center"  Grid.Row="2" Grid.Column="0"/>
+        <TextBox HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap"  Width="150" Grid.Row="2" Grid.Column="1"  Grid.ColumnSpan="2"/>
+        
+        <Label Content="Nazwisko" HorizontalAlignment="Left" VerticalAlignment="center"  Grid.Row="3" Grid.Column="0"/>
+        <TextBox HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap"  Width="150" Grid.Row="3" Grid.Column="1"  Grid.ColumnSpan="2"/>
+        
+        <Label Content="Numer telefonu" HorizontalAlignment="Left" VerticalAlignment="center"  Grid.Row="4" Grid.Column="0"/>
+        <TextBox HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap"  Width="150" Grid.Row="4" Grid.Column="1"  Grid.ColumnSpan="2"/>
+        
+        <Label Content="Email" HorizontalAlignment="Left" VerticalAlignment="center"  Grid.Row="5" Grid.Column="0"/>
+        <TextBox HorizontalAlignment="Left" VerticalAlignment="Center"  TextWrapping="Wrap"  Width="150" Grid.Row="5" Grid.Column="1"  Grid.ColumnSpan="2"/>
+
+        <Label Content="Data" HorizontalAlignment="Left" VerticalAlignment="center"  Grid.Row="2" Grid.Column="3"/>
+        <DatePicker HorizontalAlignment="Left" VerticalAlignment="center" Width="150" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2"/>
+
+        <Label Content="Godzina" HorizontalAlignment="Left" VerticalAlignment="Center"  Grid.Row="3" Grid.Column="3"/>
+        <DatePicker  HorizontalAlignment="Left" VerticalAlignment="center" Width="150" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2"/>
+
+        <Label Content="Liczba osób" HorizontalAlignment="Left" VerticalAlignment="center"   Grid.Row="4" Grid.Column="3"/>
+        <TextBox HorizontalAlignment="Left" VerticalAlignment="Center"  Text="Liczba osób" TextWrapping="Wrap"  Width="150" Grid.Row="4" Grid.Column="4"  Grid.ColumnSpan="2"/>
+
+        <Label Content="Stanowisko" HorizontalAlignment="Left" VerticalAlignment="center"  Grid.Row="5" Grid.Column="3"/>
+        <ComboBox  HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="2"/>
+
+        <Label Content="Usługi" HorizontalAlignment="Right" VerticalAlignment="center"  Grid.Row="7"/>
+        <CheckBox Content="Jedzenie"  HorizontalAlignment="center" VerticalAlignment="center"  Grid.Row="7" Grid.Column="1"/>
+        <CheckBox Content="Muzyka"  HorizontalAlignment="center" VerticalAlignment="center"  Grid.Row="7" Grid.Column="2"/>
+        <CheckBox Content="Cosplay"  HorizontalAlignment="center" VerticalAlignment="center"  Grid.Row="7" Grid.Column="3"/>
+        <CheckBox Content="Alkohol"  HorizontalAlignment="center" VerticalAlignment="center"  Grid.Row="7" Grid.Column="4"/>
+
+        <Label Content="Sprzęt" HorizontalAlignment="Right" VerticalAlignment="Center"  Grid.Row="8"/>
+        <Label Content="PC" HorizontalAlignment="center" VerticalAlignment="Top"  Grid.Row="8" Grid.Column="1"/>
+        <TextBox HorizontalAlignment="Center" VerticalAlignment="Bottom"  TextWrapping="Wrap"  Width="100" Grid.Row="8" Grid.Column="1"  />
+        <Label Content="XBOX ONE" HorizontalAlignment="center" VerticalAlignment="Top"  Grid.Row="8" Grid.Column="2"/>
+        <TextBox HorizontalAlignment="Center" VerticalAlignment="Bottom" TextWrapping="Wrap"  Width="100" Grid.Row="8" Grid.Column="2"  />
+        <Label Content="PS4" HorizontalAlignment="center" VerticalAlignment="Top"  Grid.Row="8" Grid.Column="3"/>
+        <TextBox HorizontalAlignment="Center" VerticalAlignment="Bottom" TextWrapping="Wrap"  Width="100" Grid.Row="8" Grid.Column="3"  />
+        <Label Content="Planszówki" HorizontalAlignment="center" VerticalAlignment="Top"  Grid.Row="8" Grid.Column="4"/>
+        <TextBox HorizontalAlignment="Center" VerticalAlignment="Bottom" TextWrapping="Wrap"  Width="100" Grid.Row="8" Grid.Column="4"  />
+
+        <Button Content="Dalej" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Grid.Row="10" Grid.Column="5" Click="button_next_onClick"  />
+        <Button Content="Anuluj" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Grid.Row="10" Grid.Column="0" />
+
+
+
+    </Grid>
+</Window>
