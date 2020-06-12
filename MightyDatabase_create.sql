@@ -4,7 +4,7 @@
 -- tables
 -- Table: Assignments
 CREATE TABLE Assignments (
-    IdAssignments int  NOT NULL,
+    IdAssignments serial  NOT NULL,
     Booking_IdBooking int  NOT NULL,
     Employee_IdEmployee int  NOT NULL,
     CONSTRAINT Assignments_pk PRIMARY KEY (IdAssignments)
@@ -12,11 +12,11 @@ CREATE TABLE Assignments (
 
 -- Table: Booking
 CREATE TABLE Booking (
-    IdBooking int  NOT NULL,
+    IdBooking serial  NOT NULL,
     Date date  NOT NULL,
     Hour time  NOT NULL,
-    Opinion int  NOT NULL,
-    Notes varchar(255)  NOT NULL,
+    Opinion int NULL,
+    Notes varchar(255) NULL,
     RequiredEmployees int  NOT NULL,
     NumberOfPeople int  NOT NULL,
     Cost decimal(5,2)  NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE Booking (
 
 -- Table: Customer
 CREATE TABLE Customer (
-    IdCustomer int  NOT NULL,
+    IdCustomer serial  NOT NULL,
     PhoneNumber varchar(12)  NOT NULL,
     Email varchar(50)  NOT NULL,
     Person_IdPerson int  NOT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE Customer (
 
 -- Table: Employee
 CREATE TABLE Employee (
-    IdEmployee int  NOT NULL,
+    IdEmployee serial  NOT NULL,
     HireDate date  NOT NULL,
     Person_IdPerson int  NOT NULL,
     CONSTRAINT Employee_pk PRIMARY KEY (IdEmployee)
@@ -43,7 +43,7 @@ CREATE TABLE Employee (
 
 -- Table: Equipment
 CREATE TABLE Equipment (
-    SerialNumber int  NOT NULL,
+    SerialNumber serial  NOT NULL,
     Name varchar(75)  NOT NULL,
     PurchaseDate date  NOT NULL,
     Type varchar(75)  NOT NULL,
@@ -54,7 +54,7 @@ CREATE TABLE Equipment (
 
 -- Table: Extras
 CREATE TABLE Extras (
-    IdExtras int  NOT NULL,
+    IdExtras serial  NOT NULL,
     Booking_IdBooking int  NOT NULL,
     Order_IdOrder int  NOT NULL,
     CONSTRAINT Extras_pk PRIMARY KEY (IdExtras)
@@ -62,7 +62,7 @@ CREATE TABLE Extras (
 
 -- Table: Order
 CREATE TABLE "Order" (
-    IdOrder int  NOT NULL,
+    IdOrder serial  NOT NULL,
     Name varchar(75)  NOT NULL,
     Description varchar(255)  NOT NULL,
     Cost decimal(5,2)  NOT NULL,
@@ -71,7 +71,7 @@ CREATE TABLE "Order" (
 
 -- Table: Person
 CREATE TABLE Person (
-    IdPerson int  NOT NULL,
+    IdPerson serial  NOT NULL,
     FirstName varchar(75)  NOT NULL,
     LastName varchar(75)  NOT NULL,
     CONSTRAINT Person_pk PRIMARY KEY (IdPerson)
@@ -79,7 +79,7 @@ CREATE TABLE Person (
 
 -- Table: Station
 CREATE TABLE Station (
-    StationNumber int  NOT NULL,
+    StationNumber serial  NOT NULL,
     Specialization varchar(255)  NOT NULL,
     InspectionDate date  NOT NULL,
     CONSTRAINT Station_pk PRIMARY KEY (StationNumber)
@@ -87,7 +87,7 @@ CREATE TABLE Station (
 
 -- Table: Stations_Bookings
 CREATE TABLE Stations_Bookings (
-    Id int  NOT NULL,
+    Id serial  NOT NULL,
     Booking_IdBooking int  NOT NULL,
     Station_StationNumber int  NOT NULL,
     CONSTRAINT Stations_Bookings_pk PRIMARY KEY (Id)
@@ -95,7 +95,7 @@ CREATE TABLE Stations_Bookings (
 
 -- Table: Stations_Equipment
 CREATE TABLE Stations_Equipment (
-    Id int  NOT NULL,
+    Id serial  NOT NULL,
     Station_StationNumber int  NOT NULL,
     Equipment_SerialNumber int  NOT NULL,
     CONSTRAINT Stations_Equipment_pk PRIMARY KEY (Id)
@@ -153,7 +153,7 @@ ALTER TABLE Extras ADD CONSTRAINT Extras_Booking
 -- Reference: Extras_Order (table: Extras)
 ALTER TABLE Extras ADD CONSTRAINT Extras_Order
     FOREIGN KEY (Order_IdOrder)
-    REFERENCES "Order" (IdOrder)  
+    REFERENCES "Order" (IdOrder)
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;

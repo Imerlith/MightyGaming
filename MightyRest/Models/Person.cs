@@ -7,15 +7,15 @@ namespace MightyRest.Models
     {
         public Person()
         {
-            Customer = new HashSet<Customer>();
-            Employee = new HashSet<Employee>();
+            //Customer = new HashSet<Customer>();
+            //Employee = new HashSet<Employee>();
         }
 
         public int Idperson { get; set; }
         public string Firstname { get; set; }
         public string Lastname { get; set; }
 
-        public virtual ICollection<Customer> Customer { get; set; }
-        public virtual ICollection<Employee> Employee { get; set; }
+        //public virtual ICollection<Customer> Customer { get; set; }
+        //public virtual ICollection<Employee> Employee { get; set; }
     }
 }

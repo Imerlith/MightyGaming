@@ -24,7 +24,12 @@ namespace MightyRest.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Booking>>> GetBooking()
         {
-            return await _context.Booking.ToListAsync();
+            return await _context
+                .Booking
+                .Include("Assignments")
+                .Include(booking => booking.Extras)
+                .Include(booking => booking.StationsBookings)
+                .ToListAsync();
         }
 
         // GET: api/Bookings/5
