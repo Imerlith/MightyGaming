@@ -20,7 +20,7 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <DataGrid Grid.Row="0" Grid.RowSpan="5"/>
+        <DataGrid x:Name="show_employee_data_grid" Grid.Row="0" Grid.RowSpan="5"/>
         <Grid Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="3" Background="LightGray">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition ></ColumnDefinition>
@@ -43,53 +43,59 @@
             </Grid.RowDefinitions>
 
             <Label Content="Imie" HorizontalAlignment="Left" VerticalAlignment="center"  Grid.Row="0" Grid.Column="0"/>
-            <TextBox HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap"  Width="150" Grid.Row="0" Grid.Column="1"  Grid.ColumnSpan="2"/>
+            <TextBox x:Name="show_employee_first_name" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap"  Width="150" Grid.Row="0" Grid.Column="1"  Grid.ColumnSpan="2"/>
 
             <Label Content="Nazwisko" HorizontalAlignment="Left" VerticalAlignment="center"  Grid.Row="1" Grid.Column="0"/>
-            <TextBox HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap"  Width="150" Grid.Row="1" Grid.Column="1"  Grid.ColumnSpan="2"/>
+            <TextBox x:Name="show_employee_last_name" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap"  Width="150" Grid.Row="1" Grid.Column="1"  Grid.ColumnSpan="2"/>
 
             <Label Content="Numer telefonu" HorizontalAlignment="Left" VerticalAlignment="center"  Grid.Row="2" Grid.Column="0"/>
-            <TextBox HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap"  Width="150" Grid.Row="2" Grid.Column="1"  Grid.ColumnSpan="2"/>
+            <TextBox x:Name="show_employee_phone_number" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap"  Width="150" Grid.Row="2" Grid.Column="1"  Grid.ColumnSpan="2"/>
 
             <Label Content="Email" HorizontalAlignment="Left" VerticalAlignment="center"  Grid.Row="3" Grid.Column="0"/>
-            <TextBox HorizontalAlignment="Left" VerticalAlignment="Center"  TextWrapping="Wrap"  Width="150" Grid.Row="3" Grid.Column="1"  Grid.ColumnSpan="2"/>
+            <TextBox x:Name="show_employee_email" HorizontalAlignment="Left" VerticalAlignment="Center"  TextWrapping="Wrap"  Width="150" Grid.Row="3" Grid.Column="1"  Grid.ColumnSpan="2"/>
 
             <Label Content="Data" HorizontalAlignment="Left" VerticalAlignment="center"  Grid.Row="0" Grid.Column="3"/>
-            <DatePicker HorizontalAlignment="Left" VerticalAlignment="center" Width="150" Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="2"/>
+            <DatePicker x:Name="show_employee_date" HorizontalAlignment="Left" VerticalAlignment="center" Width="150" Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="2"/>
 
             <Label Content="Godzina" HorizontalAlignment="Left" VerticalAlignment="Center"  Grid.Row="1" Grid.Column="3"/>
-            <DatePicker  HorizontalAlignment="Left" VerticalAlignment="center" Width="150" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2"/>
+            <DatePicker x:Name="show_employee_hour"  HorizontalAlignment="Left" VerticalAlignment="center" Width="150" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2"/>
 
             <Label Content="Liczba osób" HorizontalAlignment="Left" VerticalAlignment="center"   Grid.Row="2" Grid.Column="3"/>
-            <TextBox HorizontalAlignment="Left" VerticalAlignment="Center"  Text="Liczba osób" TextWrapping="Wrap"  Width="150" Grid.Row="2" Grid.Column="4"  Grid.ColumnSpan="2"/>
+            <TextBox x:Name="show_employee_people" HorizontalAlignment="Left" VerticalAlignment="Center"  Text="Liczba osób" TextWrapping="Wrap"  Width="150" Grid.Row="2" Grid.Column="4"  Grid.ColumnSpan="2"/>
 
             <Label Content="Stanowisko" HorizontalAlignment="Left" VerticalAlignment="center"  Grid.Row="3" Grid.Column="3"/>
-            <ComboBox  HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2"/>
+            <ComboBox x:Name="show_employee_station" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2"/>
 
             <Label Content="Usługi" HorizontalAlignment="Right" VerticalAlignment="center"  Grid.Row="5"/>
-            <CheckBox Content="Jedzenie"  HorizontalAlignment="center" VerticalAlignment="center"  Grid.Row="5" Grid.Column="1"/>
-            <CheckBox Content="Muzyka"  HorizontalAlignment="center" VerticalAlignment="center"  Grid.Row="5" Grid.Column="2"/>
-            <CheckBox Content="Cosplay"  HorizontalAlignment="center" VerticalAlignment="center"  Grid.Row="5" Grid.Column="3"/>
-            <CheckBox Content="Alkohol"  HorizontalAlignment="center" VerticalAlignment="center"  Grid.Row="5" Grid.Column="4"/>
+            <CheckBox x:Name="show_employee_checkbox_food" Content="Jedzenie"  HorizontalAlignment="center" VerticalAlignment="center"  Grid.Row="5" Grid.Column="1"/>
+            <CheckBox x:Name="show_employee_checkbox_music" Content="Muzyka"  HorizontalAlignment="center" VerticalAlignment="center"  Grid.Row="5" Grid.Column="2"/>
+            <CheckBox x:Name="show_employee_checkbox_cosplay" Content="Cosplay"  HorizontalAlignment="center" VerticalAlignment="center"  Grid.Row="5" Grid.Column="3"/>
+            <CheckBox x:Name="show_employee_checkbox_alcohol" Content="Alkohol"  HorizontalAlignment="center" VerticalAlignment="center"  Grid.Row="5" Grid.Column="4"/>
 
             <Label Content="Sprzęt" HorizontalAlignment="Right" VerticalAlignment="Center"  Grid.Row="6"/>
             <Label Content="PC" HorizontalAlignment="center" VerticalAlignment="Center"  Grid.Row="6" Grid.Column="1"/>
-            <TextBox HorizontalAlignment="Center" VerticalAlignment="Center"  TextWrapping="Wrap"  Width="80" Grid.Row="7" Grid.Column="1"  />
+            <TextBox x:Name="show_employee_pc" HorizontalAlignment="Center" VerticalAlignment="Center"  TextWrapping="Wrap"  Width="80" Grid.Row="7" Grid.Column="1"  />
+            
             <Label Content="XBOX ONE" HorizontalAlignment="center" VerticalAlignment="Center"  Grid.Row="6" Grid.Column="2"/>
-            <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"  Width="80" Grid.Row="7" Grid.Column="2"  />
+            <TextBox x:Name="show_employee_xbox" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"  Width="80" Grid.Row="7" Grid.Column="2"  />
+            
             <Label Content="PS4" HorizontalAlignment="center" VerticalAlignment="Center"  Grid.Row="6" Grid.Column="3"/>
-            <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"  Width="80" Grid.Row="7" Grid.Column="3"  />
+            <TextBox x:Name="show_employee_ps" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"  Width="80" Grid.Row="7" Grid.Column="3"  />
+            
             <Label Content="Planszówki" HorizontalAlignment="center" VerticalAlignment="Center"  Grid.Row="6" Grid.Column="4"/>
-            <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"  Width="80" Grid.Row="7" Grid.Column="4"  />
+            <TextBox x:Name="show_employee_board_games" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"  Width="80" Grid.Row="7" Grid.Column="4"  />
 
         </Grid>
-        <Grid Grid.Column="3" Grid.Row="4">
+
+        <Button Content="Wstecz" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Row="4" Grid.Column="1" Width="90" Click="Button_Back_OnClick"/>
+
+        <Grid Grid.Column="3" Grid.Row="4" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button Content="Anuluj rezerwację" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Column="0"/>
-            <Button Content="Potwierdź rezerwację" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Column="1"/>
+            <Button Content="Anuluj" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Column="0" Width="100"/>
+            <Button Content="Potwierdź" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Column="1" Width="100"/>
 
         </Grid>
         

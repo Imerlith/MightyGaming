@@ -21,5 +21,10 @@ namespace MightyClient
         {
             InitializeComponent();
         }
+
+        private void Button_Back_OnClick(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

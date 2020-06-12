@@ -13,21 +13,16 @@ using System.Windows.Shapes;
 namespace MightyClient
 {
     /// <summary>
-    /// Logika interakcji dla klasy CustomerMainScreen.xaml
+    /// Logika interakcji dla klasy CustomerShowHistory.xaml
     /// </summary>
-    public partial class CustomerMainScreen : Window
+    public partial class CustomerShowHistoryWindow : Window
     {
-        public CustomerMainScreen()
+        public CustomerShowHistoryWindow()
         {
             InitializeComponent();
         }
 
-        private void Button_Add_New_Booking_OnClick(object sender, RoutedEventArgs e)
-        {
-            new AddNewBookingWindow().Show();
-        }
-
-        private void Button_Exit_OnClick(object sender, RoutedEventArgs e)
+        private void Button_Back_OnClick(object sender, RoutedEventArgs e)
         {
             Close();
         }
