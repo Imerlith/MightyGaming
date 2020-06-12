@@ -18,7 +18,7 @@
             <RowDefinition Height="9*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="customer_show_history_data_grid" Grid.Column="0" Grid.ColumnSpan="5"/>
+        <DataGrid x:Name="customer_show_history_data_grid" Grid.Column="0" Grid.ColumnSpan="5" MouseDoubleClick="History_Data_Grid_MouseDoubleClick"/>
         <Button Content="Wstecz" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Row="1" Width="90" Click="Button_Back_OnClick"/>
     </Grid>
 </Window>

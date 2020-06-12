@@ -24,7 +24,6 @@ namespace MightyClient
 
         private void Button_Cancel_OnClick(object sender, RoutedEventArgs e)
         {
-
             // Acnulowanie rezerwacji
             Close();
         }
