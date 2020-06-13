@@ -24,7 +24,10 @@ namespace MightyRest.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Person>>> GetPerson()
         {
-            return await _context.Person.ToListAsync();
+            return await _context.Person
+                .OrderBy(person => person.Lastname)
+                    .ThenBy(person => person.Firstname)
+                .ToListAsync();
         }
 
         // GET: api/People/5

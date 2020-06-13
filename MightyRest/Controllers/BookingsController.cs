@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
 using MightyRest.Models;
 
@@ -24,7 +25,14 @@ namespace MightyRest.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Booking>>> GetBooking()
         {
-            return await _context.Booking.ToListAsync();
+            return await _context.Booking
+                .Include(booking => booking.Assignments)
+                    .ThenInclude(assignment => assignment.EmployeeIdemployeeNavigation)
+                .Include(booking => booking.Extras)
+                    .ThenInclude(extra => extra.OrderIdorderNavigation)
+                .Include(booking => booking.StationsBookings)
+                    .ThenInclude(station => station.StationStationnumberNavigation)
+                .ToListAsync();
         }
 
         // GET: api/Bookings/5
@@ -39,6 +47,21 @@ namespace MightyRest.Controllers
             }
 
             return booking;
+        }
+
+        //GET : api/Bookings/?datetime
+        [HttpGet("/date/")]
+        public async Task<ActionResult<IEnumerable<Booking>>> GetBookingsFromDate(DateTime dateTime)
+        {
+            return await _context.Booking
+                .Include(booking => booking.Assignments)
+                    .ThenInclude(assignment => assignment.EmployeeIdemployeeNavigation)
+                .Include(booking => booking.Extras)
+                    .ThenInclude(extra => extra.OrderIdorderNavigation)
+                .Include(booking => booking.StationsBookings)
+                    .ThenInclude(station => station.StationStationnumberNavigation)
+                .Where(booking => booking.Date == dateTime)
+                .ToListAsync();
         }
 
         // PUT: api/Bookings/5

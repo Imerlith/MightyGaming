@@ -58,11 +58,11 @@ namespace MightyRest.Models
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("assignments_booking");
 
-                entity.HasOne(d => d.EmployeeIdemployeeNavigation)
-                    .WithMany(p => p.Assignments)
-                    .HasForeignKey(d => d.EmployeeIdemployee)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("assignments_employee");
+                //entity.HasOne(d => d.EmployeeIdemployeeNavigation)
+                //    .WithMany(p => p.Assignments)
+                //    .HasForeignKey(d => d.EmployeeIdemployee)
+                //    .OnDelete(DeleteBehavior.ClientSetNull)
+                //    .HasConstraintName("assignments_employee");
             });
 
             modelBuilder.Entity<Booking>(entity =>
@@ -131,11 +131,11 @@ namespace MightyRest.Models
                     .HasColumnName("phonenumber")
                     .HasMaxLength(12);
 
-                entity.HasOne(d => d.PersonIdpersonNavigation)
-                    .WithMany(p => p.Customer)
-                    .HasForeignKey(d => d.PersonIdperson)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("customer_person");
+                //entity.HasOne(d => d.PersonIdpersonNavigation)
+                //    .WithMany(p => p.Customer)
+                //    .HasForeignKey(d => d.PersonIdperson)
+                //    .OnDelete(DeleteBehavior.ClientSetNull)
+                //    .HasConstraintName("customer_person");
             });
 
             modelBuilder.Entity<Employee>(entity =>
@@ -155,11 +155,11 @@ namespace MightyRest.Models
 
                 entity.Property(e => e.PersonIdperson).HasColumnName("person_idperson");
 
-                entity.HasOne(d => d.PersonIdpersonNavigation)
-                    .WithMany(p => p.Employee)
-                    .HasForeignKey(d => d.PersonIdperson)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("employee_person");
+                //entity.HasOne(d => d.PersonIdpersonNavigation)
+                //    .WithMany(p => p.Employee)
+                //    .HasForeignKey(d => d.PersonIdperson)
+                //    .OnDelete(DeleteBehavior.ClientSetNull)
+                //    .HasConstraintName("employee_person");
             });
 
             modelBuilder.Entity<Equipment>(entity =>
