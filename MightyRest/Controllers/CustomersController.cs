@@ -24,7 +24,9 @@ namespace MightyRest.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Customer>>> GetCustomer()
         {
-            return await _context.Customer.ToListAsync();
+            return await _context.Customer
+                .Include(cust => cust.PersonIdpersonNavigation)
+                .ToListAsync();
         }
 
         // GET: api/Customers/5

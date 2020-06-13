@@ -58,11 +58,11 @@ namespace MightyRest.Models
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("assignments_booking");
 
-                entity.HasOne(d => d.EmployeeIdemployeeNavigation)
-                    .WithMany(p => p.Assignments)
-                    .HasForeignKey(d => d.EmployeeIdemployee)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("assignments_employee");
+                //entity.HasOne(d => d.EmployeeIdemployeeNavigation)
+                //    .WithMany(p => p.Assignments)
+                //    .HasForeignKey(d => d.EmployeeIdemployee)
+                //    .OnDelete(DeleteBehavior.ClientSetNull)
+                //    .HasConstraintName("assignments_employee");
             });
 
             modelBuilder.Entity<Booking>(entity =>
