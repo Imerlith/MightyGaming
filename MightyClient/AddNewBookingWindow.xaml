@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
         xmlns:local="clr-namespace:MightyClient"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
@@ -48,10 +49,10 @@
         <DatePicker x:Name="add_date" HorizontalAlignment="Left" VerticalAlignment="center" Width="150" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2"/>
 
         <Label Content="Godzina" HorizontalAlignment="Left" VerticalAlignment="Center"  Grid.Row="3" Grid.Column="3"/>
-        <DatePicker x:Name="add_hour"  HorizontalAlignment="Left" VerticalAlignment="center" Width="150" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2"/>
+        <wpfTool:TimePicker x:Name="add_hour"  HorizontalAlignment="Left" VerticalAlignment="center" Width="150" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2" Format="Custom" FormatString="HH:mm" />
 
         <Label Content="Liczba osób" HorizontalAlignment="Left" VerticalAlignment="center"   Grid.Row="4" Grid.Column="3"/>
-        <TextBox x:Name="add_people" HorizontalAlignment="Left" VerticalAlignment="Center"  Text="Liczba osób" TextWrapping="Wrap"  Width="150" Grid.Row="4" Grid.Column="4"  Grid.ColumnSpan="2"/>
+        <TextBox x:Name="add_people" HorizontalAlignment="Left" VerticalAlignment="Center"   TextWrapping="Wrap"  Width="150" Grid.Row="4" Grid.Column="4"  Grid.ColumnSpan="2"/>
 
         <Label Content="Stanowisko" HorizontalAlignment="Left" VerticalAlignment="center"  Grid.Row="5" Grid.Column="3"/>
         <ComboBox x:Name="add_station" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="2"/>
@@ -72,7 +73,7 @@
         <Label Content="Planszówki" HorizontalAlignment="center" VerticalAlignment="Top"  Grid.Row="8" Grid.Column="4"/>
         <TextBox x:Name="add_board_games" HorizontalAlignment="Center" VerticalAlignment="Bottom" TextWrapping="Wrap"  Width="100" Grid.Row="8" Grid.Column="4"  />
 
-        <Button Content="Dalej" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Grid.Row="10" Grid.Column="5" Click="button_next_onClick"  />
+        <Button Content="Dalej" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Grid.Row="10" Grid.Column="5" Click="Button_Next_OnClick"  />
         <Button Content="Anuluj" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Grid.Row="10" Grid.Column="0" Click="Button_Back_OnClick" />
 
 

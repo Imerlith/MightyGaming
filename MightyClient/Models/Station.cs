@@ -17,5 +17,10 @@ namespace MightyClient.Models
 
         public virtual ICollection<StationsBookings> StationsBookings { get; set; }
         public virtual ICollection<StationsEquipment> StationsEquipment { get; set; }
+
+        public override string ToString()
+        {
+            return Stationnumber + " - " + Specialization;
+        }
     }
 }

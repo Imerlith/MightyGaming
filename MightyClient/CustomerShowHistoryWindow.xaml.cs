@@ -22,13 +22,20 @@ namespace MightyClient
         {
             InitializeComponent();
 
-            // TreeViewItem bookings = new TreeViewItem { Header = "Rezerwacja"};
-
             var SampleData = new SampleData();
+            SampleData.Initialize();
 
-            var Extras_List = SampleData.GetExtras();      
+            var Bookings = SampleData.Bookings;
+            
+            foreach(Extras x in SampleData.ExtrasList)
+            {
 
-            customer_show_history_data_grid.ItemsSource = Extras_List;
+                x.BookingIdbookingNavigation.Notes += x.OrderIdorderNavigation.Name + ", "; 
+            }
+
+            customer_show_history_data_grid.ItemsSource = Bookings;
+
+            //Bookings[0].
 
         }
 
@@ -46,8 +53,13 @@ namespace MightyClient
                 {
                     DataGridRow dgr = grid.ItemContainerGenerator.ContainerFromItem(grid.SelectedItem) as DataGridRow;
 
-                    Extras Extras = dgr.Item as Extras;
-                    new CustomerDetailsWindow().Show();
+                    Booking Booking = dgr.Item as Booking;
+
+                    CustomerDetailsWindow CDW = new CustomerDetailsWindow();
+
+                    CDW.loadData(Booking);
+
+                    CDW.Show();
                 }
             }
         }
