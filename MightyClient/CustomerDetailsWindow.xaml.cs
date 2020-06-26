@@ -38,9 +38,7 @@ namespace MightyClient
 
         public void loadData(Booking Booking)
         {
-            this.SampleData = new SampleData();
-            SampleData.Initialize();
-            this.Extra = (List<Extras>) Booking.Extras;
+            this.Extra = (List<Extras>)Booking.Extras;
             this.Booking = Booking;
 
             if (this.Extra != null && this.Extra.Count != 0)
@@ -60,7 +58,7 @@ namespace MightyClient
             foreach (StationsBookings s in Booking.StationsBookings)
             {
                 this.Stations.Add(s.StationStationnumberNavigation);
-                StationText += s.StationStationnumberNavigation.Stationnumber + ", ";
+                StationText += s.StationStationnumberNavigation;
             }
 
             details_first_name.Text = Customer.PersonIdpersonNavigation.Firstname;
@@ -72,7 +70,17 @@ namespace MightyClient
             details_hour.Text = Booking.Hour.ToString(@"hh\:mm");
             details_people.Text = Booking.Numberofpeople.ToString();
             details_station.Text = StationText;
-            details_status.Content = "Oczekuje na akceptację";
+
+            if (Booking.Confirmed == false)
+            { 
+                details_status.Content = "Oczekuje na akceptację";
+                details_status.Foreground = Brushes.Red;
+            }
+            else
+            {
+                details_status.Content = "Przyjęto rezerwację";
+                details_status.Foreground = Brushes.Green;
+            }
 
             foreach(Order o in Order)
             {   
@@ -87,8 +95,12 @@ namespace MightyClient
                 else if (o.Name == "Alcohol") {
                     details_checkbox_alcohol.IsChecked = true;
                 }
-                
             }
+
+            details_pc.Text = Booking.Pc + "";
+            details_xbox.Text = Booking.Xbox + "";
+            details_ps.Text = Booking.Ps + "";
+            details_board_games.Text = Booking.Boardgames + "";
 
         }
 

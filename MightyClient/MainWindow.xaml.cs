@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MightyClient.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -19,6 +20,7 @@ namespace MightyClient
     {
         public MainWindow()
         {
+            SampleData.Initialize();
             InitializeComponent();
         }
 

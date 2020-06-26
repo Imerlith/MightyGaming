@@ -21,6 +21,11 @@ namespace MightyClient.Models
         public int Numberofpeople { get; set; }
         public decimal Cost { get; set; }
         public int CustomerIdcustomer { get; set; }
+        public int Pc { get; set; }
+        public int Xbox { get; set; }
+        public int Ps { get; set; }
+        public int Boardgames { get; set; }
+        public bool Confirmed{ get; set; }
 
         public virtual Customer CustomerIdcustomerNavigation { get; set; }
         public virtual ICollection<Assignments> Assignments { get; set; }

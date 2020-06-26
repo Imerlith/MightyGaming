@@ -1,8 +1,12 @@
 ﻿using MightyClient.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -11,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Serialization;
 
 namespace MightyClient
 
@@ -20,10 +25,9 @@ namespace MightyClient
     /// </summary>
     public partial class ShowBookingWindow : Window
     {
-
-        private SampleData SampleData;
+        private List<Booking> Bookings = new List<Booking>();
         private List<Extras> Extra;
-        private Booking Booking;
+        private Booking BookingElement;
         private List<Order> Order;
         private Customer Customer;
         private List<Station> Stations;
@@ -32,31 +36,49 @@ namespace MightyClient
         {
             InitializeComponent();
 
-            var SampleData = new SampleData();
-            SampleData.Initialize();
+            updateDataGrid();
 
-            var Bookings = SampleData.Bookings;
+        }
+
+        public void updateDataGrid()
+        {
             var Orders = new List<string>();
 
-            foreach (Extras x in SampleData.ExtrasList)
-            {
-                foreach (Extras xx in SampleData.ExtrasList)
-                {
-                    if(xx.BookingIdbooking == x.BookingIdbooking)
-                    Orders.Add(xx.OrderIdorderNavigation.Name);
-                } 
+            string notes = "";
 
-                x.BookingIdbookingNavigation.Notes = String.Join(",", Orders);
-                Orders.Clear();
+            Bookings = new List<Booking>();
+
+            foreach (Booking b in SampleData.Bookings)
+            {
+                if (b.Confirmed == false)
+                {
+                    foreach (Extras x in b.Extras)
+                    {
+                        notes = x.OrderIdorderNavigation.Name;
+                    }
+                    b.Notes = notes;
+                    notes = "";
+                    Bookings.Add(b);
+                }
             }
 
             show_employee_data_grid.ItemsSource = Bookings;
-
+            UpdateLayout();
         }
 
         private void Button_Back_OnClick(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+        
+        private void Button_Confirm_OnClick(object sender, RoutedEventArgs e)
+        {
+            if(BookingElement != null)
+            {
+                BookingElement.Confirmed = true;
+                Bookings.Remove(BookingElement);
+                updateDataGrid();
+            }
         }
 
         private void Employee_Data_Grid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -82,10 +104,9 @@ namespace MightyClient
             show_employee_checkbox_cosplay.IsChecked = false;
             show_employee_checkbox_alcohol.IsChecked = false;
 
-            this.SampleData = new SampleData();
-            SampleData.Initialize();
-            this.Extra = (List<Extras>)Booking.Extras;
-            this.Booking = Booking;
+            this.Extra = (List<Extras>) Booking.Extras;
+            this.BookingElement = Booking;
+            this.Customer = Booking.CustomerIdcustomerNavigation;
 
             if (this.Extra != null && this.Extra.Count != 0)
             {
@@ -97,15 +118,13 @@ namespace MightyClient
             {
                 this.Order = new List<Order>();
             }
-            this.Customer = Booking.CustomerIdcustomerNavigation;
-
 
             var StationText = "";
             Stations = new List<Station>();
             foreach (StationsBookings s in Booking.StationsBookings)
             {
                 this.Stations.Add(s.StationStationnumberNavigation);
-                StationText += s.StationStationnumberNavigation.Stationnumber + ", ";
+                StationText += s.StationStationnumberNavigation;
             }
 
             show_employee_first_name.Text = Customer.PersonIdpersonNavigation.Firstname;
@@ -118,6 +137,11 @@ namespace MightyClient
             show_employee_people.Text = Booking.Numberofpeople.ToString();
             show_employee_station.Text = StationText;
             // show_employee_status.Content = "Oczekuje na akceptację";
+
+            show_employee_pc.Text = BookingElement.Pc + "";
+            show_employee_xbox.Text = BookingElement.Xbox + "";
+            show_employee_ps.Text = BookingElement.Ps + "";
+            show_employee_board_games.Text = BookingElement.Boardgames + "";
 
             foreach (Order o in Order)
             {
@@ -137,16 +161,12 @@ namespace MightyClient
                 {
                     show_employee_checkbox_alcohol.IsChecked = true;
                 }
-
             }
             UpdateLayout();
         }
 
         private void search_bookings_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            var SampleData = new SampleData();
-            SampleData.Initialize();
-
             var Bookings = SampleData.Bookings;
 
             var SpecificBookings = new List<Booking>();
@@ -176,6 +196,22 @@ namespace MightyClient
 
             show_employee_data_grid.ItemsSource = SpecificBookings;
             UpdateLayout();
+        }
+
+        private async Task metoda()
+        {
+            //HttpClient client = new HttpClient();
+
+            //HttpResponseMessage people = await client.GetAsync("https://localhost:44364/api/Bookings");
+
+            //people.EnsureSuccessStatusCode();
+
+            
+        }
+
+        private void Button_Click_Refresh(object sender, RoutedEventArgs e)
+        {
+            updateDataGrid();
         }
     }
 }

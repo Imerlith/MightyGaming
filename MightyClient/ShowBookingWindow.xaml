@@ -24,12 +24,14 @@
         <Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="12*"></RowDefinition>
             </Grid.RowDefinitions>
 
             <DatePicker x:Name="search_bookings" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Grid.Row="0" Grid.Column="0" SelectedDateChanged="search_bookings_SelectedDateChanged"/>
-
-            <DataGrid x:Name="show_employee_data_grid" ColumnWidth="*" Grid.Column="0" Grid.Row="1" IsReadOnly="True" AutoGenerateColumns="False" MouseDoubleClick="Employee_Data_Grid_MouseDoubleClick">
+            <Button Content="Odśwież" Grid.Row="1" Click="Button_Click_Refresh"></Button>
+            
+            <DataGrid x:Name="show_employee_data_grid" ColumnWidth="*" Grid.Column="0" Grid.Row="2" IsReadOnly="True" AutoGenerateColumns="False" MouseDoubleClick="Employee_Data_Grid_MouseDoubleClick">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Data" Binding="{Binding Date, StringFormat=\{0:dd.MM.yyyy\}}"/>
                     <DataGridTextColumn Header="Godzina" Binding="{Binding Hour, StringFormat=hh\\:mm}"/>
@@ -112,7 +114,7 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Button Content="Anuluj" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Column="0" Width="100"/>
-            <Button Content="Potwierdź" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Column="1" Width="100"/>
+            <Button Content="Potwierdź" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Column="1" Width="100" Click="Button_Confirm_OnClick"/>
 
         </Grid>
         

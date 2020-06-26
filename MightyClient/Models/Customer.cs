@@ -17,5 +17,10 @@ namespace MightyClient.Models
 
         public virtual Person PersonIdpersonNavigation { get; set; }
         public virtual ICollection<Booking> Booking { get; set; }
+
+        internal void addBooking(Booking b)
+        {
+            Booking.Add(b);
+        }
     }
 }

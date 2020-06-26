@@ -22,21 +22,21 @@ namespace MightyClient
         {
             InitializeComponent();
 
-            var SampleData = new SampleData();
-            SampleData.Initialize();
-
             var Bookings = SampleData.Bookings;
-            
-            foreach(Extras x in SampleData.ExtrasList)
-            {
 
-                x.BookingIdbookingNavigation.Notes += x.OrderIdorderNavigation.Name + ", "; 
+            var notes = "";
+
+            foreach (Booking b in Bookings)
+            {
+                foreach (Extras x in b.Extras)
+                {
+                    notes += x.OrderIdorderNavigation.Name + " " ;
+                }
+                b.Notes = notes;
+                notes = "";
             }
 
             customer_show_history_data_grid.ItemsSource = Bookings;
-
-            //Bookings[0].
-
         }
 
         private void Button_Back_OnClick(object sender, RoutedEventArgs e)
